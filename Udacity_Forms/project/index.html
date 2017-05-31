@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quiz - setCustomValidity</title>
+</head>
+<body>
+    <h3>Create a new password</h3>
+    <p>Password should meet the following requirements:</p>
+    <ul>
+        <li>16-100 characters (longer is better)</li>
+        <li>At least one of these symbols: !, @, #, $, %, ^, &, *</li>
+        <li>At least one number</li>
+        <li>At least one lowercase letter</li>
+        <li>At least one uppercase letter</li>
+    </ul>
+    
+    <!--
+    Hmmm... there seem to be a few issues with the HTML... and something is definitely missing.
+    -->
+
+    <form>
+    <label>
+        <input id="first" placeholder="New password" required autofocus type="password">
+    </label>
+    <label>
+        <input id="second" placeholder="Repeat password" required type="password">
+    </label>
+    <input id="submit" type="submit" onclick="onclick()">
+    </form>
+    <script src="app.js"></script>
+</body>
+</html>

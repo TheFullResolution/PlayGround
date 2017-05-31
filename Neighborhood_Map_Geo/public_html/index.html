@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TheNextWeb HQ Neighborhood Map</title>
+        <link href="css/normalize.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Fira+Sans|Varela+Round' rel='stylesheet' type='text/css'>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+
+        <header>         
+            <h1>
+                <a href="http://thenextweb.com/" target="_blank">
+                <img src="img/tnw-logo.svg" alt="The Next Web Logo" class="logo">
+                </a>HQ Neighborhood Map</h1>
+        </header>
+        <section>
+            <div id="search">
+                <p class="searchElement"><a href="#!" >SEARCH</a>
+                </p><input type="text" class="searchElement"
+                           data-bind="hasFocus: isSelected, value: searchQuery, valueUpdate: 'keyup'">
+                <a href="#!" data-bind="click: emptySearch">
+                    <img src="img/xbutton.svg" alt="x button" class="button">
+                </a>
+            </div>
+            <div id="list">
+
+
+                <h2><a href="#!" data-bind="click: toggleList">What do you need?</a>
+                    <a href="#!" data-bind="click: listX, visible: showList">
+                        <img src="img/xbutton.svg" alt="x button" class="button2">
+                    </a></h2>
+
+                <ul data-bind="foreach: { data: sectionList, as: 'section'}, fadeVisible: showList">
+                    <li data-bind="visible: $parent.searchQuery().length==0 ">
+                        <h3><a href="#!" data-bind="click: section.toggleList,text: section.answer">
+                            </a></h3>
+                        <div data-bind="fadeVisible: section.showList" class="placeList">
+                            <h4><!--ko text: section.name--><!--/ko-->: </h4>
+                            <ul data-bind="foreach: {data: placeList, as: 'place'}">
+                                <li><a href="#!" data-bind="text: place.name"></a></li>
+                            </ul>
+                        </div>    
+                    </li>       
+                </ul>            
+
+                <ul data-bind="foreach: displayTotalList,visible: searchQuery().length">
+                    <li>
+                        <a href="#!" data-bind="text: name"></a>
+                    </li>
+                </ul>
+
+            </div>    
+
+            <div id="map"></div>
+
+        </section>
+        <footer>
+            <a href="https://www.linkedin.com/in/lewandowskijedrzej" target="_blank">
+                <img src="img/linkedin.png" alt="Linkedin Logo" class="social-icon">
+            </a>
+            <a href="https://www.facebook.com/LewandowskiJedrzej" target="_blank">
+                <img src="img/facebook.png" alt="Facebook Logo" class="social-icon">
+            </a>
+            <a href="https://twitter.com/tFullResolution" target="_blank">
+                <img src="img/twitter.png" alt="Twitter Logo" class="social-icon">
+            </a>
+            <a href="https://github.com/TheFullResolution" target="_blank">
+                <img src="img/Github.png" alt="GitHub Logo" class="social-icon">
+            </a>
+        </footer>
+
+
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="js/knockout-3.3.0.js"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHXys-5FfqK8nWus2lzQTUavzFMl4Jq88&callback=initMap">
+        </script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
